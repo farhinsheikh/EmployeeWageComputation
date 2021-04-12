@@ -19,8 +19,6 @@ namespace EmployeeWageComputation
             {
              Console.WriteLine("Employe Is Absent");
             }
-
-            
         }
     }
 }
