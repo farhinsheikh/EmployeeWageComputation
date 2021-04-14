@@ -19,7 +19,7 @@ namespace EmployeeWageComputation
 				int empCheck = random.Next(1, 3);
 				switch (empCheck)
 				{
-			     case Is_FullTime:
+			         case Is_FullTime:
 				 EmpHrs = 8;
 				 break;
 				 case Is_PartTime:
