@@ -3,46 +3,44 @@
 namespace EmployeeWageComputation
 {
     class Program
-    {
-        public const int FULL_TIME = 1;
-        public const int PART_TIME = 2;
-        public const int EMP_RATE_PER_HOUR = 20;
-        public const int NUM_OF_WORKING_DAYS = 20;
-        public const int MAX_WORKING_HRS = 100;
-        public const int MAX_WORKING_DAYS = 20;
-
-        public static void Main(string[] args)
-        {
-         int emphrs = 0;
-         int empWage = 0;
-         int totalempwage = 0;
-         int hrs = 0;
-         int workingDays = 1;
-         Random random = new Random();
-         while (hrs < MAX_WORKING_HRS && workingDays <= MAX_WORKING_DAYS)
-         {
-              workingDays++;
-              int EmpCheack = random.Next(0, 3);
-              switch (EmpCheack)
-              {
-                case FULL_TIME:
-                emphrs = 8;
-                break;
-                case PART_TIME:
-                emphrs = 4;
-                break;
-                default:
-                emphrs = 0;
-                break;
-              }
-                empWage = EMP_RATE_PER_HOUR * emphrs;
-                hrs += emphrs;
-                totalempwage = totalempwage + empWage;
-         }
-            Console.WriteLine("Employe Wage Per Day :- " + empWage);
-            Console.WriteLine("Total Employe Month Wage :- " + totalempwage);
-            Console.WriteLine("Employee wage for " + workingDays + " days " + totalempwage);
-            Console.WriteLine("Working hours " + hrs);
-        }
-    }
+	{
+		const int EmpWagePerHr = 20;
+		const int Num_Of_Working_Days = 20;
+		const int Max_Working_Hrs = 100;
+		const int Is_FullTime = 1;
+		const int Is_PartTime = 2;
+		public static int computeEmpWage()
+		{
+	     int EmpHrs = 0, EmpWage = 0, TotalHrs = 0, WorkingDays = 0;
+	     while (TotalHrs < Max_Working_Hrs && WorkingDays < Num_Of_Working_Days)
+		 {
+		  WorkingDays++;
+		  Random random = new Random();
+		  int empCheck = random.Next(1, 3);
+		  switch (empCheck)
+		  {
+		   case Is_FullTime:
+		   EmpHrs = 8;
+		   break;
+		   case Is_PartTime:
+		   EmpHrs = 4;
+		   break;
+		   default:
+		   EmpHrs = 0;
+		   break;
+		  }
+			TotalHrs = TotalHrs + EmpHrs;
+			Console.WriteLine(" Day : " + WorkingDays + " Employee Hrs : " + TotalHrs);
+		 }
+			EmpWage = EmpHrs * EmpWagePerHr;
+			Console.WriteLine("Total Emp Wages = " + EmpWage);
+			return EmpWage;
+		}
+		static void Main(string[] args)
+		{
+			Console.WriteLine("Welcome to Employee Wage Computation Problem");
+			computeEmpWage();
+		}
+	}
 }
+
