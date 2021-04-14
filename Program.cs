@@ -3,33 +3,31 @@
 namespace EmployeeWageComputation
 {
     class Program
-    {
-        static void Main(string[] args)
+    { 
+        public const int FULL_TIME = 1;     
+        public const int PART_TIME = 2;
+        public const int EMP_RATE_PER_HOUR = 20;
+        public static void Main(string[] args)      
         {
-          Console.WriteLine("Welcome to Employee Wage Computation Problem");
-
-            int FULL_TIME = 1;
-            int PART_TIME = 2;
-            int EMP_RATE_PER_HOUR = 20;
             int emphrs = 0;
             int empWage = 0;
             Random random = new Random();
-            int EmpCheack = random.Next(0, 3);
-            if (EmpCheack == FULL_TIME)
+            int EmpCheack = random.Next(0, 3);   
+            switch (EmpCheack)          
             {
-                emphrs = 8;
-
+                case FULL_TIME:        
+                    emphrs = 8;
+                    break;
+                case PART_TIME:
+                    emphrs = 4;
+                    break;
+                default:
+                    emphrs = 0;
+                    break;
             }
-            else if (EmpCheack == PART_TIME)
-            {
-                emphrs = 4;
-            }
-            else
-            {
-                emphrs = 0;
-            }
-            empWage = EMP_RATE_PER_HOUR * emphrs;
-            Console.WriteLine("Employe Wage Per Day:- " + empWage);
+            // Calculate empWage
+            empWage = EMP_RATE_PER_HOUR * emphrs;       
+            Console.WriteLine("Employe Wage Per Day:- " + empWage);     
         }
     }
 }
